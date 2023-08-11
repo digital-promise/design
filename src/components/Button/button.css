@@ -1,9 +1,55 @@
 .button {
+  /** Design tokens for button styles **/
+  /** Ideally these defer to second tier tokens for theming **/
+  --button-bg-color: #348EC7;
+  --button-border-color: transparent;
+  --button-border-width: 2px;
+  --button-border-style: solid;
+  --button-border-radius: 1.5rem;
+  --button-text-color: #FFF;
+
+  /** Default solid style **/
+  background-color: var(--button-bg-color);
+  border-color: var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  border-style: var(--button-border-style);
+  border-width: var(--button-border-width);
+  color: var(--button-text-color);
+
+  /** Base button styles **/
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1.5rem;
   font-family: inherit;
   font-size: inherit;
+  font-weight: 600;
   padding: 0.75rem 1.5rem;
+}
+
+/** Outline style token overrides **/
+.button--outline {
+  --button-bg-color: #FFF;
+  --button-text-color: #348EC7;
+  --button-border-color: #348EC7;
+}
+
+.button--text {
+  --button-bg-color: none;
+  --button-text-color: #2A7AAC;
+  text-decoration: underline;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.button--solid.danger {
+  --button-bg-color: #D0451B;
+}
+
+.button--outline.danger,
+.button--text.danger {
+  --button-text-color: #D0451B;
+}
+
+.button--outline.danger {
+  --button-border-color: #D0451B;
 }
