@@ -23,3 +23,10 @@ export const Primary: Story = {
     label: 'Button',
   },
 };
+
+export const Danger: Story = {
+  args: {
+    label: 'Dangerous action!',
+    danger: true
+  }
+}
