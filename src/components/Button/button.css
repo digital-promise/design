@@ -53,3 +53,16 @@
 .button--outline.danger {
   --button-border-color: #D0451B;
 }
+
+.button--solid[disabled] {
+  --button-bg-color: #A3A3A3;
+}
+
+.button--outline[disabled],
+.button--text[disabled] {
+  --button-text-color: #A3A3A3;
+}
+
+.button--outline[disabled] {
+  --button-border-color: #A3A3A3;
+}
