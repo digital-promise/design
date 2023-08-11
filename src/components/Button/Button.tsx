@@ -7,6 +7,10 @@ interface ButtonProps {
    */
   variant?: 'solid' | 'outline' | 'text';
   /**
+   * Button initiates a dangerous action
+   */
+  danger?: boolean;
+  /**
    * Button contents
    */
   label: string;
@@ -14,6 +18,10 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Add disabled attribute
+   */
+  disabled?: boolean;
 }
 
 /**
@@ -21,13 +29,18 @@ interface ButtonProps {
  */
 export const Button = ({
   variant = 'solid',
+  danger = false,
   label,
   ...props
 }: ButtonProps) => {
+  const classname = ['button', `button--${variant}`];
+  if (danger) {
+    classname.push('danger');
+  }
   return (
     <button
       type="button"
-      className={['button', `button--${variant}`].join(' ')}
+      className={classname.join(' ')}
       {...props}
     >
       {label}
