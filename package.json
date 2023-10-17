@@ -34,6 +34,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
     "storybook": "^7.2.2",
+    "style-dictionary": "^3.8.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
