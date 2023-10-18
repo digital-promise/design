@@ -1,8 +1,12 @@
 {
-  "name": "storybook",
-  "private": true,
+  "name": "dpg-design",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "src/**",
+    "dist/**"
+  ],
   "scripts": {
     "style-dictionary": "style-dictionary build",
     "dev": "vite",
