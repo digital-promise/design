@@ -4,6 +4,7 @@
     "css": {
       "transformGroup": "css",
       "buildPath": "dist/css/",
+      "prefix": "dpg",
       "files": [{
           "destination": "variables.css",
           "format": "css/variables"

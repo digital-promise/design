@@ -1,7 +1,9 @@
 {
   "color": {
     "font": {
-      "base"     : { "value": "#000000" }
+      "base": {
+        "value": "{color.neutral.5}"
+      }
     }
   }
 }
