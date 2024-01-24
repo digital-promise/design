@@ -3,11 +3,10 @@
 :root {
   --font-family-primary: 'museo-sans', 'sans-serif';
   --font-family-secondary: 'museo-slab', 'sans-serif';
-  --font-size-base: 100%;
 }
 
 body {
-  font-family: var(--font-family-primary);
-  font-size: 1rem;
-  line-height: 1.5;
+  background-color: var(--dpg-color-base);
+  color: var(--dpg-color-contrast);
+  min-height: 50rem;
 }
