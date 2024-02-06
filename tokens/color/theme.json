@@ -1,0 +1,26 @@
+{
+  "color": {
+      "primary": {
+        "value": "{color.blue.4}",
+        "comment": "Primary brand color."
+      },
+      "primary-hover": { "value": "{color.blue.1}" },
+      "danger": {
+        "value": "{color.red.4}",
+        "comment": "Color that highlights dangerous actions."
+      },
+      "danger-hover": { "value": "{color.red.5}" },
+      "disabled": {
+        "value": "{color.gray.3}",
+        "comment": "Color indicating an action is disabled."
+      },
+      "base": {
+        "value": "{color.neutral.1}",
+        "comment": "The base background color for text content."
+      },
+      "contrast": {
+        "value": "{color.neutral.5}",
+        "comment": "The default text color that contrasts against the base."
+      }
+    }
+}
