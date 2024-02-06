@@ -1,20 +1,11 @@
 .button {
-  /** Design tokens for button styles **/
-  /** Ideally these defer to second tier tokens for theming **/
-  --button-bg-color: #348EC7;
-  --button-border-color: transparent;
-  --button-border-width: 2px;
-  --button-border-style: solid;
-  --button-border-radius: 1.5rem;
-  --button-text-color: #FFF;
-
   /** Default solid style **/
-  background-color: var(--button-bg-color);
-  border-color: var(--button-border-color);
-  border-radius: var(--button-border-radius);
-  border-style: var(--button-border-style);
-  border-width: var(--button-border-width);
-  color: var(--button-text-color);
+  background-color: var(--dpg-button-color-background);
+  border-color: var(--dpg-button-color-border);
+  border-radius: var(--dpg-button-size-border-radius);
+  border-style: solid;
+  border-width: 2px;
+  color: var(--dpg-button-color-text);
 
   /** Base button styles **/
   display: inline-flex;
@@ -23,7 +14,7 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  padding: var(--dpg-button-size-padding-y) var(--dpg-button-size-padding-x);
   transition-property: background-color, color, border-color;
   transition-duration: 200ms;
   transition-timing-function: ease;
@@ -31,73 +22,72 @@
 
 /** Outline style token overrides **/
 .button--outline {
-  --button-bg-color: #FFF;
-  --button-text-color: #348EC7;
-  --button-border-color: #348EC7;
+  --dpg-button-color-background: var(--dpg-color-base);
+  --dpg-button-color-text: var(--dpg-color-primary);
+  --dpg-button-color-border: var(--dpg-color-primary);
 }
 
 .button--text {
-  --button-bg-color: none;
-  --button-text-color: #2A7AAC;
+  --dpg-button-color-background: none;
+  --dpg-button-color-text: var(--dpg-color-primary);
   text-decoration: underline;
   padding-left: 0px;
   padding-right: 0px;
 }
 
 .button--solid.danger {
-  --button-bg-color: #D0451B;
+  --dpg-button-color-background: var(--dpg-color-danger);
 }
 
 .button--outline.danger,
 .button--text.danger {
-  --button-text-color: #D0451B;
+  --dpg-button-color-text: var(--dpg-color-danger);
 }
 
 .button--outline.danger {
-  --button-border-color: #D0451B;
+  --dpg-button-color-border: var(--dpg-color-danger);
 }
 
 .button--solid[disabled] {
-  --button-bg-color: #A3A3A3;
+  --dpg-button-color-background: var(--dpg-color-disabled);
 }
 
 .button--outline[disabled],
 .button--text[disabled] {
-  --button-text-color: #A3A3A3;
+  --dpg-button-color-text: var(--dpg-color-disabled);
 }
 
 .button--outline[disabled] {
-  --button-border-color: #A3A3A3;
+  --dpg-button-color-border: var(--dpg-color-disabled);
 }
 
 .button--solid:hover,
-.button--solid:focus {
-  --button-bg-color: #2A7AAC;
-}
-
+.button--solid:focus,
 .button--outline:hover,
 .button--outline:focus {
-  --button-bg-color: #EBF4FA;
+  --dpg-button-color-text: var(--dpg-color-primary);
+  --dpg-button-color-background: var(--dpg-color-primary-hover);
+  --dpg-button-color-border: var(--dpg-color-primary);
 }
 
 .button--text:hover,
 .button--text:focus {
-  --button-text-color: #246289;
+  --dpg-button-color-text: var(--dpg-color-blue-5);
 }
 
 .button--solid.danger:hover,
 .button--solid.danger:focus {
-  --button-bg-color: #AE2900;
+  --dpg-button-color-background: var(--dpg-color-danger-hover);
 }
 
 .button--outline.danger:hover,
 .button--outline.danger:focus,
 .button--text.danger:hover,
 .button--text.danger:focus {
-  --button-text-color: #AE2900;
+  --dpg-button-color-text: var(--dpg-color-danger-hover);
 }
 
 .button--outline.danger:hover,
 .button--outline.danger:focus {
-  --button-bg-color: #FCEDE8;
+  --button-bg-color: var(--dpg-color-red-1);
 }
