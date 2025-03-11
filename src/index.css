@@ -1,4 +1,4 @@
-@import "https://use.typekit.net/gru0sjs.css";
+@import "tailwindcss" source("./components");
 
 :root {
   --font-family-primary: 'museo-sans', 'sans-serif';
