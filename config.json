@@ -1,25 +1,19 @@
 {
-  "source": ["tokens/**/*.json"],
+  "source": ["./tokens/**/*.json"],
   "platforms": {
-    "css": {
-      "transformGroup": "css",
-      "buildPath": "dist/css/",
-      "prefix": "dpg",
-      "files": [{
-          "destination": "variables.css",
-          "format": "css/variables",
-          "options": {
-            "outputReferences": true
-          }
-      }]
-    },
-    "scss": {
-      "transformGroup": "scss",
-      "buildPath": "dist/scss/",
-      "files": [{
-        "destination": "_variables.scss",
-        "format": "scss/variables"
-      }]
-    }
+      "ts": {
+          "transformGroup": "js",
+          "buildPath": "./dist/",
+          "files": [
+              {
+                  "destination": "tokens.js",
+                  "format": "javascript/module"
+              },
+              {
+                  "format": "typescript/module-declarations",
+                  "destination": "tokens.d.ts"
+                }
+          ]
+      }
   }
 }
