@@ -1,3 +1,7 @@
 @import "tailwindcss" source("./components");
 @import "./reset.css";
 @import "./theme.css";
+
+@utility btn {
+    @apply font-bold transition border border-transparent text-neutral-1 px-5 py-3 rounded-3xl bg-blue-4 hover:bg-blue-3 data-[state='danger']:bg-danger data-[state='danger']:hover:bg-danger-hover data-[state='inverse']:bg-neutral-1 data-[state='inverse']:text-blue-3 data-[state='inverse']:border-blue-3 data-[state='inverse']:hover:bg-blue-2 data-[state='decolor']:bg-gray-5 data-[state='decolor']:hover:bg-gray-4;
+}

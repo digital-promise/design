@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "./Button";
+import { Button } from "../index";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -23,13 +23,27 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    label: "Button",
+    children: "Button",
   },
 };
 
 export const Danger: Story = {
   args: {
-    label: "Dangerous action!",
-    danger: true,
+    children: "Dangerous action!",
+    state: "danger",
+  },
+};
+
+export const Inverse: Story = {
+  args: {
+    children: "Secondary Style",
+    state: "inverse",
+  },
+};
+
+export const Decolor: Story = {
+  args: {
+    children: "Decolored Button",
+    state: "decolor",
   },
 };
