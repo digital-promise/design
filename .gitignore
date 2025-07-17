@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 storybook-static
-src/variables.css
+src/theme.css
 
 # Editor directories and files
 .vscode/*
