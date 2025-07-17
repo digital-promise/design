@@ -1,22 +1,23 @@
 {
   "color": {
+    "$type": "color",
     "primary": {
-      "value": "{color.blue.4}",
-      "comment": "Primary brand color."
+      "$value": "{color.blue.4}",
+      "$description": "Primary brand color."
     },
     "primary-hover": {
-      "value": "{color.blue.1}"
+      "$value": "{color.blue.1}"
     },
     "danger": {
-      "value": "{color.red.4}",
-      "comment": "Color that highlights dangerous actions."
+      "$value": "{color.red.4}",
+      "$description": "Color that highlights dangerous actions."
     },
     "danger-hover": {
-      "value": "{color.red.5}"
+      "$value": "{color.red.5}"
     },
     "disabled": {
-      "value": "{color.gray.3}",
-      "comment": "Color indicating an action is disabled."
+      "$value": "{color.gray.3}",
+      "$description": "Color indicating an action is disabled."
     }
   }
 }
