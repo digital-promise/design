@@ -5,6 +5,9 @@
     "platforms": {
         "ts": {
             "transformGroup": "js",
+            "transform": [
+                "size/rem"
+            ],
             "buildPath": "./dist/",
             "files": [
                 {
@@ -19,11 +22,16 @@
         },
         "css": {
             "transformGroup": "css",
-            "prefix": "dp",
+            "transform": [
+                "size/rem"
+            ],
             "files": [
                 {
                     "format": "css/variables",
-                    "destination": "src/variables.css"
+                    "destination": "src/theme.css",
+                    "options": {
+                        "selector": "@theme"
+                    }
                 }
             ]
         }
