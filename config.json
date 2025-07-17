@@ -1,19 +1,31 @@
 {
-  "source": ["./tokens/**/*.json"],
-  "platforms": {
-      "ts": {
-          "transformGroup": "js",
-          "buildPath": "./dist/",
-          "files": [
-              {
-                  "destination": "tokens.js",
-                  "format": "javascript/module"
-              },
-              {
-                  "format": "typescript/module-declarations",
-                  "destination": "tokens.d.ts"
+    "source": [
+        "./tokens/**/*.json"
+    ],
+    "platforms": {
+        "ts": {
+            "transformGroup": "js",
+            "buildPath": "./dist/",
+            "files": [
+                {
+                    "destination": "tokens.js",
+                    "format": "javascript/module"
+                },
+                {
+                    "format": "typescript/module-declarations",
+                    "destination": "tokens.d.ts"
                 }
-          ]
-      }
-  }
+            ]
+        },
+        "css": {
+            "transformGroup": "css",
+            "prefix": "dp",
+            "files": [
+                {
+                    "format": "css/variables",
+                    "destination": "src/variables.css"
+                }
+            ]
+        }
+    }
 }
