@@ -1,12 +1,2 @@
 @import "tailwindcss" source("./components");
-
-:root {
-  --font-family-primary: 'museo-sans', 'sans-serif';
-  --font-family-secondary: 'museo-slab', 'sans-serif';
-}
-
-body {
-  background-color: var(--dpg-color-base);
-  color: var(--dpg-color-contrast);
-  min-height: 50rem;
-}
+@import "./variables.css";
