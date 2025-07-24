@@ -4,10 +4,12 @@
   "version": "0.3.0",
   "type": "module",
   "files": [
+    "src/main.css",
     "src/components/**",
     "dist/**"
   ],
   "scripts": {
+    "postinstall": "npm run build",
     "style-dictionary": "style-dictionary build",
     "postbuild": "style-dictionary build",
     "prestorybook": "style-dictionary build",
