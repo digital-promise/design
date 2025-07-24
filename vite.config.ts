@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, 'lib/main.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'DPGDesign',
       // the proper extensions will be added
       fileName: 'digitalpromise-design'
