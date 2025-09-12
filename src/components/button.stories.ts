@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "../index";
+import { default as Button, variants, states } from "./button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
@@ -13,7 +13,19 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
   args: {
+    variant: "primary",
+    state: "default",
     disabled: false,
+  },
+  argTypes: {
+    variant: {
+      options: variants,
+      control: { type: "radio" },
+    },
+    state: {
+      options: states,
+      control: { type: "radio" },
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -23,27 +35,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    children: "Button",
+    children: "Primary Button",
+    variant: "primary",
   },
-};
-
-export const Danger: Story = {
-  args: {
-    children: "Dangerous action!",
-    state: "danger",
-  },
-};
-
-export const Inverse: Story = {
-  args: {
-    children: "Secondary Style",
-    state: "inverse",
-  },
-};
-
-export const Decolor: Story = {
-  args: {
-    children: "Decolored Button",
-    state: "decolor",
+  parameters: {
+    controls: { exclude: ["variant"] },
   },
 };
