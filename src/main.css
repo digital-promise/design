@@ -18,6 +18,10 @@
     @apply bg-neutral-1 text-blue-4 hover:bg-blue-1 hover:border-blue-5 hover:text-blue-5;
   }
 
+  .btn-primary.btn-decolor {
+    @apply border-gray-5 bg-gray-5 text-neutral-1 hover:border-neutral-5 hover:bg-neutral-5;
+  }
+
   .btn-secondary {
     @apply bg-neutral-1 border-2 border-blue-3 text-blue-4 hover:border-blue-4 hover:bg-blue-1 hover:text-blue-5;
   }
@@ -30,6 +34,10 @@
     @apply border-neutral-1 text-neutral-1 bg-indigo-3 hover:bg-indigo-4;
   }
 
+  .btn-secondary.btn-decolor {
+    @apply text-gray-5 border-gray-5 hover:text-neutral-5 hover:border-neutral-5 hover:bg-gray-1;
+  }
+
   .btn-tertiary {
     @apply px-0 py-3 text-blue-4 underline hover:text-blue-5;
   }
@@ -40,5 +48,9 @@
 
   .btn-tertiary.btn-inverse {
     @apply text-neutral-1 hover:text-gray-1;
+  }
+
+  .btn-tertiary.btn-decolor {
+    @apply text-gray-5 hover:text-neutral-5;
   }
 }
