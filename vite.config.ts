@@ -19,14 +19,21 @@ export default defineConfig(({ mode, command }) => {
           resolve(__dirname, "src/index.ts"),
           resolve(__dirname, "src/main.css"),
         ],
-        name: "DPGDesign",
+        name: "components",
         // the proper extensions will be added
-        fileName: "digitalpromise-design",
+        fileName: "index",
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: ["react", "react/jsx-runtime"],
+        external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
+        output: {
+          globals: {
+            react: "React",
+            "react-dom": "ReactDOM",
+            tailwindcss: "tailwindcss",
+          },
+        },
       },
     },
   };

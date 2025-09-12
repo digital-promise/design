@@ -3,10 +3,18 @@
   "private": false,
   "version": "1.0.1-next.1",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "src/components/**",
-    "dist/**"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "scripts": {
     "postinstall": "npm run build",
     "style-dictionary": "style-dictionary build",
@@ -14,15 +22,11 @@
     "prestorybook": "style-dictionary build",
     "prebuild-storybook": "style-dictionary build",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
@@ -39,11 +43,18 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "eslint-plugin-storybook": "^9.1.5",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "storybook": "^9.1.5",
     "style-dictionary": "^5.0.4",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "vite": "^7.1.5"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.13",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "packageManager": "pnpm@10.15.1+sha512.34e538c329b5553014ca8e8f4535997f96180a1d0f614339357449935350d924e22f8614682191264ec33d1462ac21561aff97f6bb18065351c162c7e8f6de67"
 }
