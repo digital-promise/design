@@ -38,7 +38,18 @@ export const Primary: Story = {
     children: "Primary Button",
     variant: "primary",
   },
-  parameters: {
-    controls: { exclude: ["variant"] },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: "Secondary Button",
+    variant: "secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    children: "Tertiary Button",
+    variant: "tertiary",
   },
 };
