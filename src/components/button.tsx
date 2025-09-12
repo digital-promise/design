@@ -1,19 +1,16 @@
-import type { ButtonHTMLAttributes } from "react"
+import type { ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    state?: "inverse" | "danger" | "decolor",
-}
+  variant?: "primary" | "secondary" | "tertiary";
+  state?: "default" | "danger" | "inverse" | "decolor";
+};
 
-export default function Button({ 
-    className, 
-    state, 
-    ...props 
+export default function Button({
+  className,
+  variant = "primary",
+  state = "default",
+  ...props
 }: ButtonProps) {
-    return (
-        <button
-            data-state={state}
-            className="btn"
-            {...props}
-        />
-    )
+  const style = [variant, state].map((c) => "btn-" + c).join(" ");
+  return <button className={`btn ${style} ${className ?? ""}`.trim()} {...props} />;
 }
