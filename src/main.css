@@ -1,6 +1,12 @@
 @import "./reset.css";
 @import "./theme.css";
 
-@utility btn {
-    @apply font-bold transition border border-transparent text-neutral-1 px-5 py-3 rounded-3xl bg-blue-4 hover:bg-blue-3 data-[state='danger']:bg-danger data-[state='danger']:hover:bg-danger-hover data-[state='inverse']:bg-neutral-1 data-[state='inverse']:text-blue-3 data-[state='inverse']:border-blue-3 data-[state='inverse']:hover:bg-blue-2 data-[state='decolor']:bg-gray-5 data-[state='decolor']:hover:bg-gray-4;
+@layer components {
+  .btn {
+    @apply transition cursor-pointer font-semibold px-[1.375rem] py-[0.625rem] rounded-3xl;
+  }
+
+  .btn-primary {
+    @apply bg-blue-3 border-2 border-blue-3 leading-5 text-neutral-1 hover:border-blue-4 hover:bg-blue-4 disabled:border-blue-3 disabled:bg-blue-3;
+  }
 }
