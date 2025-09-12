@@ -27,6 +27,19 @@ const meta = {
       control: { type: "radio" },
     },
   },
+  decorators: [
+    (Story, {args}) => {
+      return (
+        <section
+          className={
+            args.state === "inverse" ? "bg-indigo-3 px-6 py-3" : undefined
+          }
+        >
+          <Story />
+        </section>
+      );
+    },
+  ],
 } satisfies Meta<typeof Button>;
 
 export default meta;
