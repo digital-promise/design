@@ -1,20 +1,13 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "1.0.1-next.2",
+  "version": "1.0.1-next.3",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
-  },
   "scripts": {
     "postinstall": "npm run build",
     "style-dictionary": "style-dictionary build",
