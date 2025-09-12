@@ -7,6 +7,6 @@
   }
 
   .btn-primary {
-    @apply bg-blue-3 border-2 border-blue-3 leading-5 text-neutral-1 hover:border-blue-4 hover:bg-blue-4 disabled:border-blue-3 disabled:bg-blue-3;
+    @apply bg-blue-3 border-2 border-blue-3 leading-5 text-neutral-1 hover:border-blue-4 hover:bg-blue-4 disabled:border-blue-3 disabled:bg-blue-3 disabled:opacity-50;
   }
 }
