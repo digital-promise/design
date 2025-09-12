@@ -3,18 +3,30 @@
 
 @layer components {
   .btn {
-    @apply transition cursor-pointer font-semibold px-[1.375rem] py-[0.625rem] rounded-3xl;
+    @apply transition cursor-pointer font-semibold px-[1.375rem] py-[0.625rem] rounded-3xl disabled:opacity-50;
   }
 
   .btn-primary {
-    @apply bg-blue-3 border-2 border-blue-3 leading-5 text-neutral-1 hover:border-blue-4 hover:bg-blue-4 disabled:border-blue-3 disabled:bg-blue-3 disabled:opacity-50;
+    @apply bg-blue-3 border-2 border-blue-3 leading-5 text-neutral-1 hover:border-blue-4 hover:bg-blue-4 disabled:border-blue-3 disabled:bg-blue-3;
+  }
+
+  .btn-primary.btn-danger {
+    @apply border-red-3 bg-red-3 text-neutral-1 hover:border-red-4 hover:bg-red-4;
   }
 
   .btn-secondary {
-    @apply bg-neutral-1 border-2 border-blue-3 text-blue-4 hover:border-blue-4 hover:bg-blue-1 hover:text-blue-5 disabled:opacity-50;
+    @apply bg-neutral-1 border-2 border-blue-3 text-blue-4 hover:border-blue-4 hover:bg-blue-1 hover:text-blue-5;
+  }
+
+  .btn-secondary.btn-danger {
+    @apply border-red-3 text-red-3 hover:border-red-4 hover:text-red-4 hover:bg-red-1;
   }
 
   .btn-tertiary {
-    @apply px-0 py-3 text-blue-4 underline hover:text-blue-5 disabled:opacity-50;
+    @apply px-0 py-3 text-blue-4 underline hover:text-blue-5;
+  }
+
+  .btn-tertiary.btn-danger {
+    @apply text-red-4 hover:text-red-5;
   }
 }
