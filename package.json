@@ -11,9 +11,9 @@
   "scripts": {
     "postinstall": "npm run build",
     "style-dictionary": "style-dictionary build",
-    "postbuild": "style-dictionary build",
     "prestorybook": "style-dictionary build",
     "prebuild-storybook": "style-dictionary build",
+    "prebuild": "style-dictionary build",
     "dev": "vite",
     "build": "vite build && tsc",
     "lint": "eslint ./src --ext ts,tsx",
