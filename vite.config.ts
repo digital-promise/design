@@ -3,7 +3,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -13,10 +12,7 @@ export default defineConfig(({ mode, command }) => {
       environment: "jsdom",
       setupFiles: ["./src/testing.ts"],
     },
-    plugins: [
-      react(),
-      mode === "development" && command === "serve" ? tailwindcss() : false,
-    ],
+    plugins: [react()],
     publicDir: false,
     build: {
       cssCodeSplit: true,
