@@ -1,6 +1,11 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { mergeConfig, type UserConfig, type PluginOption } from "vite";
 
+const nextNavigationShim = new URL(
+  "../src/shims/next-navigation.ts",
+  import.meta.url,
+).pathname;
+
 const viteReactEntryPlugin = {
   name: "fix-vite-inject-mocker-entry-path",
   enforce: "post",
@@ -41,6 +46,11 @@ const config: StorybookConfig = {
         tailwindcss.default(),
         isProductionBuild ? viteReactEntryPlugin : false,
       ],
+      resolve: {
+        alias: {
+          "next/navigation": nextNavigationShim,
+        },
+      },
     } as const satisfies UserConfig;
 
     return mergeConfig(config, storybookOverrides);
