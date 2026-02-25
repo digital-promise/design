@@ -1,0 +1,43 @@
+import { useState, type ReactNode } from "react";
+
+export interface TabProps {
+  id: string;
+  label: ReactNode;
+  content: ReactNode;
+}
+
+export interface TabListProps {
+  tabs: TabProps[];
+}
+
+export const TabList = ({ tabs }: TabListProps) => {
+  const [selectedId, setSelectedId] = useState<string | undefined>(tabs[0]?.id);
+
+  if (tabs.length <= 1) return tabs.map((tab) => tab.content);
+
+  const activeTab = tabs.find((tab) => tab.id === selectedId);
+
+  return (
+    <div>
+      <nav className="mb-7">
+        <ul className="flex">
+          {tabs.map(({ id, label }) => (
+            <li key={id} className="font-bold text-gray-5">
+              <button
+                data-active={selectedId === id || null}
+                className="border border-gray-1 border-b-gray-3 bg-gray-1 px-5 py-4 data-active:border-blue-3 data-active:bg-neutral-1 data-active:text-blue-4 data-active:border-b-neutral-1 hover:bg-gray-2 hover:text-neutral-5 data-active:hover:text-blue-5 transition"
+                type="button"
+                onClick={() => setSelectedId(id)}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
+          <li className="border-b border-gray-3 flex-1"></li>
+        </ul>
+      </nav>
+
+      {activeTab?.content}
+    </div>
+  );
+};
