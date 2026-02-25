@@ -38,10 +38,13 @@ export default defineConfig(({ mode, command }) => {
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
         // into your library
-        external: (id) =>
-          ["react", "react-dom", "react/jsx-runtime", "tailwindcss"].includes(id) ||
-          id === "next" ||
-          id.startsWith("next/"),
+        external: [
+          "react",
+          "react-dom",
+          "react/jsx-runtime",
+          "tailwindcss",
+          /^next(?:\/.*)?$/,
+        ],
         output: {
           globals: {
             react: "React",

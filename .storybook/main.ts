@@ -40,8 +40,9 @@ const config: StorybookConfig = {
   viteFinal: async (config, { configType }) => {
     const tailwindcss = await import("@tailwindcss/vite");
     const isProductionBuild = configType === "PRODUCTION";
+    const storybookBase = isProductionBuild ? "/design" : "/design-system/";
     const storybookOverrides = {
-      base: isProductionBuild ? "/design" : undefined,
+      base: storybookBase,
       plugins: [
         tailwindcss.default(),
         isProductionBuild ? viteReactEntryPlugin : false,

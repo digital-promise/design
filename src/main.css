@@ -55,27 +55,14 @@
   }
 }
 
-/* The icon CSS uses a class-start selector only. Keep both selectors so icon
-   classes still work when additional classes are prepended. */
-[class^="dpg-icons-"]::before,
-[class*=" dpg-icons-"]::before {
-  font-family: var(--font-icon) !important;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@utility hide-search-clear {
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-/* Hides the browser-native clear button so Search can render its own icon. */
-.search-input::-webkit-search-cancel-button,
-.search-input::-webkit-search-decoration {
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.search-input::-ms-clear {
-  display: none;
+  &::-ms-clear {
+    display: none;
+  }
 }
