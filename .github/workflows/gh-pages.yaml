@@ -25,7 +25,6 @@ jobs:
           node-version: 24
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
-          steps:
       - uses: pnpm/action-setup@v4
         with:
           version: 10
