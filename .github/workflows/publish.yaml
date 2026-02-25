@@ -6,17 +6,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
     steps:
-      - uses: actions/checkout@v5
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
+          steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          cache: true
       - run: pnpm install
       - run: pnpm build
       - name: Publish to package registry
