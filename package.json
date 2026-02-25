@@ -4,6 +4,11 @@
   "version": "3.0.0",
   "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./forms": "./dist/forms.js",
+    "./theme": "./dist/theme.css"
+  },
   "types": "dist/index.d.ts",
   "files": [
     "dist"
