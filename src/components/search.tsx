@@ -77,14 +77,14 @@ export default function Search({
         />
         <input
           ref={inputRef}
-          className="search-input block w-full max-w-full rounded-[4px] bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-6 indent-[30px] outline outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
+          className="hide-search-clear block w-full max-w-full rounded-[4px] bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-6 indent-[30px] outline outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
           style={{
             color: "#000000",
             WebkitTextFillColor: "#000000",
           }}
           size={placeholderLength}
           id={id}
-          type="text"
+          type="search"
           autoComplete="off"
           value={effectiveQuery}
           placeholder={placeholder}
