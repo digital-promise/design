@@ -6,7 +6,8 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
-  const useNextNavigationShim = command === "serve" || process.env.STORYBOOK === "true";
+  const useNextNavigationShim =
+    command === "serve" || process.env.STORYBOOK === "true";
 
   return {
     test: {
@@ -18,7 +19,10 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       alias: useNextNavigationShim
         ? {
-            "next/navigation": resolve(__dirname, "src/shims/next-navigation.ts"),
+            "next/navigation": resolve(
+              __dirname,
+              "src/shims/next-navigation.ts",
+            ),
           }
         : {},
     },
@@ -27,13 +31,11 @@ export default defineConfig(({ mode, command }) => {
       cssCodeSplit: true,
       lib: {
         // Could also be a dictionary or array of multiple entry points
-        entry: [
-          resolve(__dirname, "src/index.ts"),
-          resolve(__dirname, "src/main.css"),
-        ],
-        name: "components",
-        // the proper extensions will be added
-        fileName: "index",
+        entry: {
+          theme: resolve(__dirname, "src/main.css"),
+          index: resolve(__dirname, "src/components/index.ts"),
+          forms: resolve(__dirname, "src/components/forms/index.ts"),
+        },
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled
