@@ -1,7 +1,7 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "3.0.0-preview",
+  "version": "3.0.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
