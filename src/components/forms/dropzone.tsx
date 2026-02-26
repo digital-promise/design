@@ -17,7 +17,6 @@ import Button from "../button";
 interface DropzoneProps
   extends Omit<ComponentPropsWithRef<"input">, "type">,
     FormInputProps {
-  id: string;
   instructions?: string;
   remover?: ReactElement;
 }
