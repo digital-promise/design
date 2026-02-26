@@ -55,7 +55,7 @@ export const ListInput = ({ onChange, defaultValue }: ListInputProps) => {
         />
 
         <Button variant="tertiary" type="button" onClick={() => addItems()}>
-          <Icon name="plus" />
+          <Icon name="Plus" />
           <span className="grow underline">Add Tag</span>
         </Button>
       </div>
@@ -71,7 +71,7 @@ export const ListInput = ({ onChange, defaultValue }: ListInputProps) => {
               className="be-btn-24 inline-flex items-center justify-center rounded font-bold leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4"
               type="button"
             >
-              <Icon name="close" />
+              <Icon name="Close" />
             </button>
           </li>
         ))}
