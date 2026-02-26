@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Icon } from "./icon";
 
 type SearchProps = {
   placeholder: string;
@@ -31,7 +32,7 @@ export default function Search({
   const inputRef = useRef<HTMLInputElement | null>(null);
   const isControlled = value !== undefined;
   const [query, setQuery] = useState(
-    isControlled ? value : searchParams.get(paramKey)?.toString() ?? "",
+    isControlled ? value : (searchParams.get(paramKey)?.toString() ?? ""),
   );
 
   const effectiveQuery = isControlled ? value : query;
@@ -71,13 +72,14 @@ export default function Search({
         Search
       </label>
       <div className="relative max-w-full" style={{ width: resolvedWidth }}>
-        <span
+        <Icon
+          name="Magnifier"
           aria-hidden
-          className="absolute left-[15px] top-1/2 z-10 -translate-y-1/2 font-icon dpg-icons-magnifier inline-block h-6 w-6 text-[24px] leading-[24px] text-gray-5"
+          className="absolute left-[15px] top-1/2 z-10 -translate-y-1/2 text-large leading-5 text-gray-5"
         />
         <input
           ref={inputRef}
-          className="hide-search-clear block w-full max-w-full rounded-[4px] bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-6 indent-[30px] outline outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
+          className="hide-search-clear block w-full max-w-full rounded-sm bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-6 indent-[30px] outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
           style={{
             color: "#000000",
             WebkitTextFillColor: "#000000",
@@ -100,7 +102,7 @@ export default function Search({
           <button
             type="button"
             aria-label="Clear search"
-            className="absolute right-[4px] top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg p-2 text-gray-5 hover:text-neutral-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4"
+            className="absolute right-1 top-1/2 z-10 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg p-2 text-gray-5 hover:text-neutral-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4"
             onClick={() => {
               if (!isControlled) setQuery("");
               onChange?.("");
@@ -110,7 +112,7 @@ export default function Search({
           >
             <span
               aria-hidden
-              className="font-icon dpg-icons-close inline-block h-4 w-4 text-[16px] leading-[16px] text-gray-5"
+              className="font-icon dpg-icons-close inline-block h-4 w-4 text-[16px] leading-4 text-gray-5"
             />
           </button>
         )}
