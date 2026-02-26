@@ -12,7 +12,7 @@ const viteReactEntryPlugin = {
   transformIndexHtml(html) {
     return html.replace(
       /src="\/vite-inject-mocker-entry\.js"/,
-      `src=".\/vite-inject-mocker-entry.js"`
+      `src=".\/vite-inject-mocker-entry.js"`,
     );
   },
 } as const satisfies PluginOption;
@@ -35,6 +35,12 @@ const config: StorybookConfig = {
 
   typescript: {
     reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
+      },
+    },
   },
 
   viteFinal: async (config, { configType }) => {
