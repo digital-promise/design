@@ -1,7 +1,7 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "4.3.0",
+  "version": "4.4.0",
   "type": "module",
   "main": "dist/index.js",
   "exports": {
@@ -43,7 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^8.56.1",
     "@typescript-eslint/parser": "^8.56.1",
     "@vitejs/plugin-react-swc": "^4.2.3",
-    "eslint": "^10.0.2",
+    "eslint": "^9.39.3",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^10.2.13",
     "jsdom": "^28.1.0",
