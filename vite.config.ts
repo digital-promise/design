@@ -3,7 +3,7 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import dts from "vite-plugin-dts";
+import dts from "unplugin-dts/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
       environment: "jsdom",
       setupFiles: ["./src/testing.ts"],
     },
-    plugins: [react(), dts()],
+    plugins: [react(), dts({bundleTypes: true})],
     resolve: {
       alias: useNextNavigationShim
         ? {
