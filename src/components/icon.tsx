@@ -1,79 +1,23 @@
-import type { DPGIconId } from "@digitalpromise/icons/dist/dpg-icons";
-import {
-  type ComponentPropsWithRef,
-  FC,
-  SVGProps,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { type DPGIconName } from "@digitalpromise/icons";
+import * as SvgComponents from "@digitalpromise/icons/components";
+import { type ComponentPropsWithRef } from "react";
 
 interface IconProps extends ComponentPropsWithRef<"svg"> {
-  name: DPGIconId;
+  name: DPGIconName;
 }
 
-type InlineSVG = FC<SVGProps<SVGElement>>;
-
-const useImportedSvg = (name: DPGIconId) => {
-  const svgRef = useRef<InlineSVG>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const importSvgModule = async () => {
-      try {
-        const importedSvg = await import(
-          `@digitalpromise/icons/dist/icons/${name}.svg`
-        );
-        svgRef.current = importedSvg.default as InlineSVG;
-      } catch (importError) {
-        setError(importError as Error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    importSvgModule();
-  }, [name]);
-
-  return {
-    Svg: svgRef.current,
-    error,
-    isLoading,
-  };
-};
-
 export const Icon = ({ name, className, ...props }: IconProps) => {
-  const { Svg, isLoading, error } = useImportedSvg(name);
-
-  if (error) {
-    console.log(error);
-
-    return (
-      <i className="inline-block align-top w-5 h-5 text-gray-4 not-italic border-gray-5 rounded-full">
-        !
-      </i>
-    );
-  }
-
-  if (isLoading) {
-    return <i className="inline-block align-top w-5 h-5"></i>;
-  }
-
-  if (Svg) {
-    return (
-      <Svg
-        className={`inline-block align-top ${className ?? ""}`.trim()}
-        {...props}
-      />
-    );
-  }
-
-  return null;
+  const SvgIcon = SvgComponents[name];
+  return (
+    <SvgIcon
+      className={`inline-block align-top w-5 h-5 ${className?.trim()}`}
+      {...props}
+    />
+  );
 };
 
 type IconButtonProps = Omit<ComponentPropsWithRef<"button">, "type"> & {
-  icon: DPGIconId;
+  icon: DPGIconName;
   iconClassName?: string;
   label?: string;
 };

@@ -1,12 +1,12 @@
 @import "tailwindcss" source("./components");
 @import "./main.css";
-@import "@digitalpromise/icons/dist/dpg-icons.css";
+@import "@digitalpromise/icons/css";
 
 @font-face {
   font-family: "dpg-icons";
   src:
-    url("@digitalpromise/icons/dist/dpg-icons.woff2") format("woff2"),
-    url("@digitalpromise/icons/dist/dpg-icons.woff") format("woff");
+    url("@digitalpromise/icons/woff2") format("woff2"),
+    url("@digitalpromise/icons/woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: block;
