@@ -33,7 +33,12 @@ export const WithDropzone: Story = {
   args: {
     label: "Profile Picture",
     Input: SingleImageDropzone,
-    inputProps: { required: true },
+    inputProps: {
+      name: "image",
+      required: true,
+      instructions:
+        "Please upload a .png file (recommended 420×420 pixels or larger) or an .svg file.",
+    },
   },
 };
 
