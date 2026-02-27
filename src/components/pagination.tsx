@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Icon } from "./icon";
 
 type PaginationProps = {
   count: number;
@@ -23,7 +24,8 @@ export default function Pagination({
   const pages = Math.max(1, Math.ceil(count / limit));
 
   const paginationItems: Array<number | "ellipsis"> = (() => {
-    if (pages <= 7) return Array.from({ length: pages }, (_value, index) => index + 1);
+    if (pages <= 7)
+      return Array.from({ length: pages }, (_value, index) => index + 1);
     if (currentPage <= 4) return [1, 2, 3, 4, 5, "ellipsis", pages];
     if (currentPage >= pages - 3) {
       return [1, "ellipsis", pages - 4, pages - 3, pages - 2, pages - 1, pages];
@@ -73,10 +75,7 @@ export default function Pagination({
           className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-[4px] bg-transparent p-[9px] text-gray-5 transition hover:bg-transparent hover:text-neutral-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-4 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
           onClick={() => advancePage("prev")}
         >
-          <span
-            aria-hidden
-            className="font-icon dpg-icons-arrow-line-left inline-block h-[24px] w-[24px] text-[24px] leading-[24px]"
-          />
+          <Icon name="ArrowLineLeft" />
         </button>
       </li>
 
@@ -120,10 +119,7 @@ export default function Pagination({
           className="inline-flex h-[42px] w-[42px] items-center justify-center rounded-[4px] bg-transparent p-[9px] text-gray-5 transition hover:bg-transparent hover:text-neutral-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-4 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
           onClick={() => advancePage("next")}
         >
-          <span
-            aria-hidden
-            className="font-icon dpg-icons-arrow-line-right inline-block h-[24px] w-[24px] text-[24px] leading-[24px]"
-          />
+          <Icon name="ArrowLineRight" />
         </button>
       </li>
     </ul>

@@ -110,10 +110,7 @@ export default function Search({
               inputRef.current?.focus();
             }}
           >
-            <span
-              aria-hidden
-              className="font-icon dpg-icons-close inline-block h-4 w-4 text-[16px] leading-4 text-gray-5"
-            />
+            <Icon name="Close" />
           </button>
         )}
       </div>
