@@ -5,6 +5,7 @@ import { FormField } from "./form-field";
 import { Select } from "./select";
 import { TextInput } from "./text-input";
 import { Textarea } from "./textarea";
+import { Label } from "./label";
 
 export {
   Checkbox,
@@ -12,6 +13,7 @@ export {
   SingleImageDropzone,
   Form,
   FormField,
+  Label,
   Select,
   Textarea,
   TextInput,
