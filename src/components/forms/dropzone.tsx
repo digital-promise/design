@@ -26,6 +26,7 @@ export const Dropzone = ({
   error,
   instructions,
   className,
+  ref: userRef,
   onChange: userOnChange,
   remover,
   ...props
@@ -119,7 +120,17 @@ export const Dropzone = ({
       >
         <input
           {...props}
-          ref={fileInputRef}
+          ref={(e) => {
+            if (userRef) {
+              if (userRef instanceof Function) {
+                userRef(e);
+              } else {
+                userRef.current = e;
+              }
+            }
+
+            fileInputRef.current = e;
+          }}
           onChange={handleChange}
           className="sr-only"
           type="file"
