@@ -79,7 +79,7 @@ export default function Search({
         />
         <input
           ref={inputRef}
-          className="hide-search-clear block w-full max-w-full rounded-sm bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-6 indent-[30px] outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
+          className="hide-search-clear block w-full max-w-full rounded-sm bg-white py-[11px] pl-[15px] pr-[40px] text-base leading-5 indent-[30px] outline-1 outline-gray-5 transition focus:outline-2 focus:outline-blue-4"
           style={{
             color: "#000000",
             WebkitTextFillColor: "#000000",
