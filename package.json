@@ -1,7 +1,7 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "4.8.0",
+  "version": "4.8.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": {
@@ -14,12 +14,11 @@
     "dist"
   ],
   "scripts": {
-    "postinstall": "npm run build",
     "style-dictionary": "style-dictionary build",
     "prestorybook": "style-dictionary build",
     "prebuild-storybook": "style-dictionary build",
     "prebuild": "style-dictionary build",
-    "build": "vite build && tsc",
+    "build": "vite build",
     "lint": "eslint ./src --ext ts,tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
