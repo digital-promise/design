@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { FormField, TextInput, Textarea, SingleImageDropzone } from "./index";
+import { FormField, TextInput, Textarea, Select, SingleImageDropzone } from "./index";
 
 const meta = {
   title: "Forms/Form Field",
@@ -28,6 +28,18 @@ export const WithTextArea: Story = {
     inputProps: { required: true },
   },
 };
+
+export const WithSelect: Story = {
+  args: {
+    label: "Choose a plan",
+    Input: Select,
+    inputProps: {
+      name: "tier",
+      required: true,
+      options: ["Starter", "Pro", "Enterprise"].map(o => ({label: o, value: o.toLowerCase()}))
+    }
+  }
+}
 
 export const WithDropzone: Story = {
   args: {
