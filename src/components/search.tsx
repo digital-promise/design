@@ -73,7 +73,7 @@ export default function Search({
       <div className="relative max-w-full" style={{ width: resolvedWidth }}>
         <span
           aria-hidden
-          className="absolute left-[15px] top-1/2 z-10 -translate-y-1/2 font-icon dpg-icons-magnifier inline-block h-6 w-6 text-[24px] leading-[24px] text-gray-5"
+          className="absolute left-[15px] top-1/2 z-10 -translate-y-1/2 font-icon dpg-icons-magnifier inline-block h-5 w-6 text-[24px] leading-[24px] text-gray-5"
         />
         <input
           ref={inputRef}
