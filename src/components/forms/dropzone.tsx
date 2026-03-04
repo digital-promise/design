@@ -116,7 +116,7 @@ export const Dropzone = ({
         onDrop={handleFileDrop}
         htmlFor={props.id}
         data-error={error || null}
-        className={`flex items-center justify-center rounded-lg border border-dashed border-blue-3 px-7 py-8 font-medium text-blue-3 data-showing-preview:w-max data-showing-preview:border-gray-3 data-showing-preview:text-gray-3 data-is-dragging:border-blue-5 data-is-dragging:bg-blue-1 data-showing-preview:py-5 data-is-dragging:text-blue-4 ${className ?? ""} cursor-default`.trim()}
+        className={`flex items-center justify-center rounded-lg border border-dashed border-blue-3 px-7 py-8 font-medium text-blue-4 data-showing-preview:w-max data-showing-preview:border-gray-3 data-showing-preview:text-gray-3 data-is-dragging:border-blue-5 data-is-dragging:bg-blue-1 data-showing-preview:py-5 data-is-dragging:text-blue-5 ${className ?? ""} cursor-default`.trim()}
       >
         <input
           {...props}
