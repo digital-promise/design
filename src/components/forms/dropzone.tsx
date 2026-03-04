@@ -144,8 +144,10 @@ export const Dropzone = ({
           </>
         ) : (
           (children ?? (
-            <p className="pointer-events-none select-none">
-              <Icon name="Upload" /> Click or drop to upload
+            <p className="pointer-events-none select-none text-center">
+              <Icon name="Upload" />
+              <br />
+              Click or drop to upload
             </p>
           ))
         )}
