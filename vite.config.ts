@@ -4,6 +4,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import dts from "unplugin-dts/vite";
+import directives from 'rollup-preserve-directives'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -16,7 +17,7 @@ export default defineConfig(({ command }) => {
       environment: "jsdom",
       setupFiles: ["./src/testing.ts"],
     },
-    plugins: [react(), dts({bundleTypes: true})],
+    plugins: [react(), dts({bundleTypes: true}), directives()],
     resolve: {
       alias: useNextNavigationShim
         ? {
