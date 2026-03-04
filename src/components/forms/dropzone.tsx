@@ -152,7 +152,9 @@ export const Dropzone = ({
           ))
         )}
       </label>
-      {instructions && <p className="font-light leading-6">{instructions}</p>}
+      {instructions && (
+        <p className="font-light leading-5 mt-3 text-gray-5">{instructions}</p>
+      )}
     </div>
   );
 };
