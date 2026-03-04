@@ -1,7 +1,7 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "4.8.3",
+  "version": "4.8.4",
   "type": "module",
   "main": "dist/index.js",
   "exports": {
@@ -18,7 +18,7 @@
     "prestorybook": "style-dictionary build",
     "prebuild-storybook": "style-dictionary build",
     "prebuild": "style-dictionary build",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "lint": "eslint ./src --ext ts,tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
