@@ -28,7 +28,6 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: isStorybookBuild
         ? {
-            "next/link": resolve(__dirname, "src/shims/next-link.tsx"),
             "next/navigation": resolve(
               __dirname,
               "src/shims/next-navigation.ts",
