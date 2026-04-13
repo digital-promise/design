@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { default as IconButton } from "./icon-button";
-import { IconLink } from "./icon-button";
 
 describe("IconButton component specification", () => {
   it("renders an icon-only button", () => {
@@ -55,15 +54,5 @@ describe("IconButton component specification", () => {
     expect(container.querySelector("svg")?.getAttribute("class")).toContain(
       "h-5",
     );
-  });
-
-  it("renders the link variant", () => {
-    render(
-      <IconLink href="/tenants/create" icon="Plus" label="Create Tenant" variant="secondary">
-        Create Tenant
-      </IconLink>,
-    );
-
-    expect(screen.getByRole("link", { name: "Create Tenant" })).toBeTruthy();
   });
 });

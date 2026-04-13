@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   default as IconButton,
-  IconLink,
   iconButtonSizes,
   iconButtonStates,
   iconButtonVariants,
@@ -84,4 +83,3 @@ export const Tertiary: Story = {
     children: "Help",
   },
 };
-

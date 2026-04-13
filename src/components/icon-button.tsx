@@ -1,10 +1,5 @@
-import Link, { type LinkProps } from "next/link";
 import type { DPGIconName } from "@digitalpromise/icons";
-import type {
-  AnchorHTMLAttributes,
-  ComponentPropsWithRef,
-  ReactNode,
-} from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import { Icon } from "./icon";
 
 export const iconButtonStates = [
@@ -46,42 +41,6 @@ export type IconButtonProps = ComponentPropsWithRef<"button"> & {
   variant?: IconButtonVariant;
   iconPosition?: IconPosition;
 };
-
-type SharedIconLinkProps = Pick<
-  IconButtonProps,
-  | "children"
-  | "className"
-  | "icon"
-  | "iconClassName"
-  | "iconPosition"
-  | "label"
-  | "size"
-  | "state"
-  | "textClassName"
-  | "variant"
->;
-
-type InternalIconLinkProps = Omit<
-  LinkProps,
-  "href" | "className" | "children"
-> &
-  Omit<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    "href" | "className" | "children" | "aria-label"
-  > & {
-    href: string;
-    external?: false;
-  } & SharedIconLinkProps;
-
-type ExternalIconLinkProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href" | "className" | "children" | "aria-label"
-> & {
-  href: string;
-  external: true;
-} & SharedIconLinkProps;
-
-export type IconLinkProps = InternalIconLinkProps | ExternalIconLinkProps;
 
 const iconOnlyBaseClassName =
   "inline-flex items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50";
@@ -261,50 +220,6 @@ export default function IconButton({
         variant,
       })}
     </button>
-  );
-}
-
-export function IconLink({
-  children,
-  className,
-  external,
-  href,
-  icon,
-  iconClassName,
-  iconPosition = "start",
-  label,
-  size = "md",
-  state = "default",
-  textClassName,
-  variant = "ghost",
-  ...props
-}: IconLinkProps) {
-  const content = renderIconButtonContent({
-    children,
-    icon,
-    iconClassName,
-    iconPosition,
-    size,
-    textClassName,
-    variant,
-  });
-  const sharedProps = {
-    "aria-label": label,
-    className: getIconButtonClassName({ className, size, state, variant }),
-  };
-
-  if (external) {
-    return (
-      <a href={href} {...sharedProps} {...props}>
-        {content}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} {...sharedProps} {...props}>
-      {content}
-    </Link>
   );
 }
 
