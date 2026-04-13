@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useId } from "react";
 
 export type TableColumn<TRow> = {
   key: string;
@@ -15,17 +16,21 @@ type TableProps<TRow> = {
 };
 
 export default function Table<TRow>({ columns, rows, rowKey }: TableProps<TRow>) {
+  const tableId = useId();
+
   return (
     <table className="w-full table-auto border-y border-gray-2 text-gray-5">
       <thead className="font-bold">
         <tr>
           {columns.map((column) => (
-            <td
+            <th
               key={column.key}
-              className={`px-3 py-4 ${column.headerClassName ?? ""}`.trim()}
+              id={`${tableId}-col-${column.key}`}
+              scope="col"
+              className={`px-3 py-4 text-left ${column.headerClassName ?? ""}`.trim()}
             >
               {column.header}
-            </td>
+            </th>
           ))}
         </tr>
       </thead>
@@ -35,6 +40,7 @@ export default function Table<TRow>({ columns, rows, rowKey }: TableProps<TRow>)
             {columns.map((column) => (
               <td
                 key={column.key}
+                headers={`${tableId}-col-${column.key}`}
                 className={`${column.cellClassName ?? "px-3 py-4"}`.trim()}
               >
                 {column.render(row)}

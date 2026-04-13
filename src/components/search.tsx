@@ -13,6 +13,10 @@ type SearchProps = {
   syncToUrl?: boolean;
   id?: string;
   paramKey?: string;
+  /** CSS selector for the first search result element to focus on Enter */
+  firstResultSelector?: string;
+  /** Callback fired when Enter is pressed (after preventDefault) */
+  onEnter?: (query: string) => void;
 };
 
 export default function Search({
@@ -24,6 +28,8 @@ export default function Search({
   syncToUrl = true,
   id = "search",
   paramKey = "s",
+  firstResultSelector,
+  onEnter,
 }: SearchProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -66,8 +72,22 @@ export default function Search({
     router.replace(serialized ? `${pathname}?${serialized}` : pathname);
   };
 
+  const handleSubmit = (event: React.FormEvent): void => {
+    event.preventDefault();
+
+    onEnter?.(effectiveQuery);
+
+    // Focus first search result if selector provided and query exists
+    if (firstResultSelector && effectiveQuery.trim()) {
+      const firstResult = document.querySelector<HTMLElement>(firstResultSelector);
+      if (firstResult) {
+        firstResult.focus();
+      }
+    }
+  };
+
   return (
-    <form className={className ?? ""} noValidate>
+    <form className={className ?? ""} noValidate onSubmit={handleSubmit}>
       <label className="sr-only" htmlFor={id}>
         Search
       </label>

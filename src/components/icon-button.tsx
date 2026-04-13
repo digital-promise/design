@@ -1,0 +1,326 @@
+import Link, { type LinkProps } from "next/link";
+import type { DPGIconName } from "@digitalpromise/icons";
+import type {
+  AnchorHTMLAttributes,
+  ComponentPropsWithRef,
+  ReactNode,
+} from "react";
+import { Icon } from "./icon";
+
+export const iconButtonStates = [
+  "default",
+  "danger",
+  "inverse",
+  "emphasize",
+  "decolor",
+] as const;
+export const iconButtonSizes = ["md", "sm", "xs"] as const;
+export const iconButtonVariants = [
+  "ghost",
+  "outline",
+  "secondary",
+  "tertiary",
+] as const;
+
+type IconButtonState = (typeof iconButtonStates)[number];
+type IconButtonSize = (typeof iconButtonSizes)[number];
+type IconOnlyVariant = Extract<
+  (typeof iconButtonVariants)[number],
+  "ghost" | "outline"
+>;
+type TextVariant = Extract<
+  (typeof iconButtonVariants)[number],
+  "secondary" | "tertiary"
+>;
+type IconButtonVariant = IconOnlyVariant | TextVariant;
+type IconPosition = "start" | "end";
+
+export type IconButtonProps = ComponentPropsWithRef<"button"> & {
+  icon?: DPGIconName;
+  iconClassName?: string;
+  textClassName?: string;
+  label: string;
+  children?: ReactNode;
+  state?: IconButtonState;
+  size?: IconButtonSize;
+  variant?: IconButtonVariant;
+  iconPosition?: IconPosition;
+};
+
+type SharedIconLinkProps = Pick<
+  IconButtonProps,
+  | "children"
+  | "className"
+  | "icon"
+  | "iconClassName"
+  | "iconPosition"
+  | "label"
+  | "size"
+  | "state"
+  | "textClassName"
+  | "variant"
+>;
+
+type InternalIconLinkProps = Omit<
+  LinkProps,
+  "href" | "className" | "children"
+> &
+  Omit<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    "href" | "className" | "children" | "aria-label"
+  > & {
+    href: string;
+    external?: false;
+  } & SharedIconLinkProps;
+
+type ExternalIconLinkProps = Omit<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  "href" | "className" | "children" | "aria-label"
+> & {
+  href: string;
+  external: true;
+} & SharedIconLinkProps;
+
+export type IconLinkProps = InternalIconLinkProps | ExternalIconLinkProps;
+
+const iconOnlyBaseClassName =
+  "inline-flex items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50";
+
+const iconOnlySizeClassName: Record<IconButtonSize, string> = {
+  md: "h-12 w-12 p-3",
+  sm: "h-8 w-8 p-2",
+  xs: "h-6 w-6 p-0",
+};
+
+const iconOnlyStateClassName: Record<IconButtonState, string> = {
+  default: "text-gray-5 hover:text-neutral-5 transition-colors",
+  danger: "text-red-4 hover:text-red-5",
+  inverse: "text-white hover:text-gray-1",
+  emphasize:
+    "bg-white text-gray-5 hover:bg-gray-1 hover:text-neutral-5 focus-visible:bg-blue-1 focus-visible:text-blue-4 focus-visible:hover:bg-blue-2 focus-visible:hover:text-blue-5",
+  decolor: "text-gray-5 hover:text-neutral-5 transition-colors",
+};
+
+const iconOnlyVariantClassName: Record<IconOnlyVariant, string> = {
+  ghost: "",
+  outline: "border-2 border-gray-5",
+};
+
+const secondaryStateClassName: Record<IconButtonState, string> = {
+  default: "btn btn-primary",
+  danger: "btn btn-primary btn-danger",
+  inverse: "btn btn-primary btn-inverse",
+  emphasize: "btn btn-primary",
+  decolor: "btn btn-primary btn-decolor",
+};
+
+const tertiaryStateClassName: Record<IconButtonState, string> = {
+  default: "flex items-center gap-2 py-3 text-gray-5",
+  danger: "flex items-center gap-2 py-3 text-red-4 hover:text-red-5",
+  inverse: "flex items-center gap-2 py-3 text-white hover:text-gray-1",
+  emphasize: "flex items-center gap-2 py-3 text-gray-5",
+  decolor: "flex items-center gap-2 py-3 text-gray-5 hover:text-neutral-5",
+};
+
+function getIconGlyphClassName(size: IconButtonSize, className?: string) {
+  const sizeClassName =
+    size === "xs"
+      ? "block h-5 w-5 shrink-0 leading-none"
+      : size === "sm"
+        ? "block h-4 w-4 shrink-0 text-base leading-none"
+        : "block h-6 w-6 shrink-0 text-2xl leading-none";
+
+  return `${sizeClassName} ${className ?? ""}`.trim();
+}
+
+function getIconButtonClassName({
+  className,
+  size = "md",
+  state = "default",
+  variant = "ghost",
+}: Pick<IconButtonProps, "className" | "size" | "state" | "variant">) {
+  if (variant === "secondary") {
+    return `${secondaryStateClassName[state]} ${className ?? ""}`.trim();
+  }
+
+  if (variant === "tertiary") {
+    return `${tertiaryStateClassName[state]} ${className ?? ""}`.trim();
+  }
+
+  return `${iconOnlyBaseClassName} ${iconOnlySizeClassName[size]} ${iconOnlyStateClassName[state]} ${iconOnlyVariantClassName[variant]} ${className ?? ""}`.trim();
+}
+
+function renderIconButtonContent({
+  children,
+  icon,
+  iconClassName,
+  iconPosition = "start",
+  size = "md",
+  textClassName,
+  variant = "ghost",
+}: Pick<
+  IconButtonProps,
+  | "children"
+  | "icon"
+  | "iconClassName"
+  | "iconPosition"
+  | "size"
+  | "textClassName"
+  | "variant"
+>) {
+  const glyph = icon ? (
+    <Icon
+      name={icon}
+      className={
+        variant === "ghost" || variant === "outline"
+          ? getIconGlyphClassName(size, iconClassName)
+          : variant === "tertiary"
+            ? `h-5 w-5 shrink-0 ${iconClassName ?? ""}`.trim()
+            : iconClassName
+      }
+    />
+  ) : null;
+
+  if (variant === "tertiary") {
+    const text = children ? (
+      <span className={`font-semibold underline ${textClassName ?? ""}`.trim()}>
+        {children}
+      </span>
+    ) : null;
+
+    return iconPosition === "end" ? (
+      <>
+        {text}
+        {glyph}
+      </>
+    ) : (
+      <>
+        {glyph}
+        {text}
+      </>
+    );
+  }
+
+  if (variant === "secondary") {
+    const text = textClassName ? (
+      <span className={textClassName}>{children}</span>
+    ) : (
+      children
+    );
+
+    if (!glyph) return text;
+    if (!text) return glyph;
+
+    return iconPosition === "end" ? (
+      <>
+        {text} {glyph}
+      </>
+    ) : (
+      <>
+        {glyph} {text}
+      </>
+    );
+  }
+
+  return (
+    <>
+      {glyph}
+      {children}
+    </>
+  );
+}
+
+export default function IconButton({
+  children,
+  icon,
+  iconClassName,
+  iconPosition = "start",
+  label,
+  className,
+  size = "md",
+  state = "default",
+  textClassName,
+  type = "button",
+  variant = "ghost",
+  ...props
+}: IconButtonProps) {
+  return (
+    <button
+      type={type}
+      className={getIconButtonClassName({ className, size, state, variant })}
+      {...props}
+      aria-label={label}
+    >
+      {renderIconButtonContent({
+        children,
+        icon,
+        iconClassName,
+        iconPosition,
+        size,
+        textClassName,
+        variant,
+      })}
+    </button>
+  );
+}
+
+export function IconLink({
+  children,
+  className,
+  external,
+  href,
+  icon,
+  iconClassName,
+  iconPosition = "start",
+  label,
+  size = "md",
+  state = "default",
+  textClassName,
+  variant = "ghost",
+  ...props
+}: IconLinkProps) {
+  const content = renderIconButtonContent({
+    children,
+    icon,
+    iconClassName,
+    iconPosition,
+    size,
+    textClassName,
+    variant,
+  });
+  const sharedProps = {
+    "aria-label": label,
+    className: getIconButtonClassName({ className, size, state, variant }),
+  };
+
+  if (external) {
+    return (
+      <a href={href} {...sharedProps} {...props}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} {...sharedProps} {...props}>
+      {content}
+    </Link>
+  );
+}
+
+export function IconButtonGlyph({
+  name,
+  size = "md",
+  className,
+}: {
+  name: DPGIconName;
+  size?: IconButtonSize;
+  className?: string;
+}) {
+  return (
+    <Icon
+      name={name}
+      className={getIconGlyphClassName(size, className)}
+    />
+  );
+}

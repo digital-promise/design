@@ -18,6 +18,14 @@
     "disabled": {
       "$value": "{color.gray.3}",
       "$description": "Color indicating an action is disabled."
+    },
+    "focus": {
+      "$value": "#14833F",
+      "$description": "Keyboard focus indicator color (Jade-4)."
+    },
+    "focus-outer": {
+      "$value": "#FFFFFF",
+      "$description": "Outer stroke color for keyboard focus indicator."
     }
   }
 }
