@@ -11,7 +11,7 @@ const meta = {
   tags: ["autodocs"],
   args: {
     count: 64,
-    limit: 8,
+    limit: 10,
   },
   decorators: [
     (Story) => (

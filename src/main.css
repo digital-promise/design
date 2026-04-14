@@ -108,6 +108,33 @@
   }
 }
 
+/* Search bar: hint text Gray-5, icon/text gaps 8px, clear button pointer cursor */
+.search-field input[type="search"]::placeholder {
+  color: #454545;
+  -webkit-text-fill-color: #454545;
+}
+
+.search-field > div > svg[aria-hidden="true"] {
+  left: 15px !important;
+}
+
+.search-field > div > input[type="search"] {
+  padding-left: calc(15px + 24px + 8px) !important;
+  padding-right: calc(8px + 32px + 8px) !important;
+  text-indent: 0 !important;
+}
+
+.search-field > div > button[aria-label="Clear search"] {
+  cursor: pointer;
+  right: 8px !important;
+}
+
+/* Pagination arrow buttons: pointer cursor when not disabled */
+button[aria-label="Previous page"]:not(:disabled),
+button[aria-label="Next page"]:not(:disabled) {
+  cursor: pointer;
+}
+
 /* Focus ring utilities */
 @utility focus-ring {
   &:focus-visible {
