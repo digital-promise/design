@@ -27,7 +27,8 @@ export default function Table<TRow>({ columns, rows, rowKey }: TableProps<TRow>)
               key={column.key}
               id={`${tableId}-col-${column.key}`}
               scope="col"
-              className={`px-3 py-4 text-left ${column.headerClassName ?? ""}`.trim()}
+              //chnaged from leading 5, 1px gets magically added
+              className={`px-3 py-4 text-left leading-[23px] ${column.headerClassName ?? ""}`.trim()}
             >
               {column.header}
             </th>
