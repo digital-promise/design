@@ -1,7 +1,7 @@
 {
   "name": "@digitalpromise/design",
   "private": false,
-  "version": "4.9.0",
+  "version": "4.9.1",
   "type": "module",
   "main": "dist/index.js",
   "exports": {
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.1.2",
-    "@digitalpromise/icons": "^2.6.1",
+    "@digitalpromise/icons": "^3.0.0",
     "@eslint/js": "^10.0.1",
     "@microsoft/api-extractor": "^7.58.2",
     "@storybook/addon-docs": "^10.3.5",

@@ -16,8 +16,8 @@ importers:
         specifier: ^5.1.2
         version: 5.1.2(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@3.8.2)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@digitalpromise/icons':
-        specifier: ^2.6.1
-        version: 2.6.1
+        specifier: ^3.0.0
+        version: 3.0.0
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@9.39.4(jiti@2.6.1))
@@ -253,8 +253,8 @@ packages:
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
 
-  '@digitalpromise/icons@2.6.1':
-    resolution: {integrity: sha512-y+HeuOxmxZTa1hxvfGifKdQR32XDqpOdb7h7okO9zix2Eaz7wZYPfWH3QOwDewfgSJGKuvgh46AzjttIshNzfw==}
+  '@digitalpromise/icons@3.0.0':
+    resolution: {integrity: sha512-ry7k7KuKVUKBka8rWMFa9ZqQqT0oX3mByFz15RHqYOsUjTnjp/MmF8Bc9D1qe7tMEqTPHCdKEeERmid8VQNN3g==}
 
   '@emnapi/runtime@1.9.2':
     resolution: {integrity: sha512-3U4+MIWHImeyu1wnmVygh5WlgfYDtyf0k8AbLhMFxOipihf6nrWC4syIm/SwEeec0mNSafiiNnMJwbza/Is6Lw==}
@@ -3505,7 +3505,7 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.0': {}
 
-  '@digitalpromise/icons@2.6.1': {}
+  '@digitalpromise/icons@3.0.0': {}
 
   '@emnapi/runtime@1.9.2':
     dependencies:
