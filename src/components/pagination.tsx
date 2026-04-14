@@ -5,13 +5,13 @@ import { Icon } from "./icon";
 
 type PaginationProps = {
   count: number;
-  limit: number;
+  limit?: number;
   pageParamKey?: string;
 };
 
 export default function Pagination({
   count,
-  limit,
+  limit = 10,
   pageParamKey = "page",
 }: PaginationProps) {
   const searchParams = useSearchParams();

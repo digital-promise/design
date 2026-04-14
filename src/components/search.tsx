@@ -87,7 +87,7 @@ export default function Search({
   };
 
   return (
-    <form className={className ?? ""} noValidate onSubmit={handleSubmit}>
+    <form className={`search-field ${className ?? ""}`.trim()} noValidate onSubmit={handleSubmit}>
       <label className="sr-only" htmlFor={id}>
         Search
       </label>
