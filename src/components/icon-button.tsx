@@ -66,11 +66,11 @@ const iconOnlyVariantClassName: Record<IconOnlyVariant, string> = {
 };
 
 const secondaryStateClassName: Record<IconButtonState, string> = {
-  default: "btn btn-primary",
-  danger: "btn btn-primary btn-danger",
-  inverse: "btn btn-primary btn-inverse",
-  emphasize: "btn btn-primary",
-  decolor: "btn btn-primary btn-decolor",
+  default: "btn btn-primary inline-flex items-center justify-center gap-2",
+  danger: "btn btn-primary btn-danger inline-flex items-center justify-center gap-2",
+  inverse: "btn btn-primary btn-inverse inline-flex items-center justify-center gap-2",
+  emphasize: "btn btn-primary inline-flex items-center justify-center gap-2",
+  decolor: "btn btn-primary btn-decolor inline-flex items-center justify-center gap-2",
 };
 
 const tertiaryStateClassName: Record<IconButtonState, string> = {
@@ -172,11 +172,13 @@ function renderIconButtonContent({
 
     return iconPosition === "end" ? (
       <>
-        {text} {glyph}
+        {text}
+        {glyph}
       </>
     ) : (
       <>
-        {glyph} {text}
+        {glyph}
+        {text}
       </>
     );
   }

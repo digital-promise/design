@@ -80,19 +80,19 @@
   }
 
   .btn-tertiary {
-    @apply px-0 py-3 text-blue-4 underline hover:text-blue-5;
+    @apply px-0 py-3 text-blue-4 underline hover:text-blue-5 rounded-none;
   }
 
   .btn-tertiary.btn-danger {
-    @apply text-red-4 hover:text-red-5;
+    @apply text-red-4 hover:text-red-5 rounded-none;
   }
 
   .btn-tertiary.btn-inverse {
-    @apply text-neutral-1 hover:text-gray-1;
+    @apply text-neutral-1 hover:text-gray-1 rounded-none;
   }
 
   .btn-tertiary.btn-decolor {
-    @apply text-gray-5 hover:text-neutral-5;
+    @apply text-gray-5 hover:text-neutral-5 rounded-none;
   }
 }
 
