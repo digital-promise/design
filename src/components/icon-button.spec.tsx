@@ -16,8 +16,7 @@ describe("IconButton component specification", () => {
         icon="Plus"
         label="Create Tenant"
         variant="secondary"
-      >
-        Create Tenant
+      >Create Tenant
       </IconButton>,
     );
 
@@ -25,6 +24,8 @@ describe("IconButton component specification", () => {
 
     expect(button.className).toContain("btn");
     expect(button.className).toContain("btn-primary");
+    expect(button.className).toContain("inline-flex");
+    expect(button.className).toContain("gap-2");
     expect(screen.getByText("Create Tenant")).toBeTruthy();
   });
 
