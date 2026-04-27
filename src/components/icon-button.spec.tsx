@@ -31,25 +31,6 @@ describe("IconButton component specification", () => {
     expect(screen.getByText("Create Tenant")).toBeTruthy();
   });
 
-  it("renders the secondary text variant", () => {
-    render(
-      <IconButton
-        icon="Plus"
-        label="Create Tenant"
-        variant="secondary"
-      >
-        Create Tenant
-      </IconButton>,
-    );
-
-    const button = screen.getByRole("button", { name: "Create Tenant" });
-
-    expect(button.className).toContain("btn");
-    expect(button.className).toContain("btn-secondary");
-    expect(button.className).toContain("inline-flex");
-    expect(button.className).toContain("gap-2");
-    expect(screen.getByText("Create Tenant")).toBeTruthy();
-  });
 
   it("renders the secondary text variant", () => {
     render(
