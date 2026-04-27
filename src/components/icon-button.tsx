@@ -1,5 +1,10 @@
 import type { DPGIconName } from "@digitalpromise/icons";
 import type { ComponentPropsWithRef, ReactNode } from "react";
+import {
+  getButtonClassName,
+  type ButtonState,
+  type ButtonVariant,
+} from "./button";
 import { Icon } from "./icon";
 
 export const iconButtonStates = [
@@ -11,10 +16,11 @@ export const iconButtonStates = [
 ] as const;
 export const iconButtonSizes = ["md", "sm", "xs"] as const;
 export const iconButtonVariants = [
-  "ghost",
-  "outline",
+  "primary",
   "secondary",
   "tertiary",
+  "ghost",
+  "outline",
 ] as const;
 
 type IconButtonState = (typeof iconButtonStates)[number];
@@ -23,10 +29,8 @@ type IconOnlyVariant = Extract<
   (typeof iconButtonVariants)[number],
   "ghost" | "outline"
 >;
-type TextVariant = Extract<
-  (typeof iconButtonVariants)[number],
-  "secondary" | "tertiary"
->;
+type ButtonStyleVariant = Extract<ButtonVariant, "primary" | "secondary">;
+type TextVariant = ButtonStyleVariant | "tertiary";
 type IconButtonVariant = IconOnlyVariant | TextVariant;
 type IconPosition = "start" | "end";
 
@@ -81,6 +85,8 @@ const tertiaryStateClassName: Record<IconButtonState, string> = {
   decolor: "flex items-center gap-2 py-3 text-gray-5 hover:text-neutral-5",
 };
 
+const textButtonLayoutClassName = "inline-flex items-center justify-center gap-2";
+
 function getIconGlyphClassName(size: IconButtonSize, className?: string) {
   const sizeClassName =
     size === "xs"
@@ -98,8 +104,14 @@ function getIconButtonClassName({
   state = "default",
   variant = "ghost",
 }: Pick<IconButtonProps, "className" | "size" | "state" | "variant">) {
-  if (variant === "secondary") {
-    return `${secondaryStateClassName[state]} ${className ?? ""}`.trim();
+  if (variant === "primary" || variant === "secondary") {
+    const buttonState: ButtonState = state === "emphasize" ? "default" : state;
+    const buttonClassName = getButtonClassName({
+      className: textButtonLayoutClassName,
+      variant,
+      state: buttonState,
+    });
+    return `${buttonClassName} ${className ?? ""}`.trim();
   }
 
   if (variant === "tertiary") {
@@ -160,7 +172,7 @@ function renderIconButtonContent({
     );
   }
 
-  if (variant === "secondary") {
+  if (variant === "primary" || variant === "secondary") {
     const text = textClassName ? (
       <span className={textClassName}>{children}</span>
     ) : (

@@ -46,6 +46,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Primary: Story = {
+  args: {
+    icon: "Plus",
+    label: "Create Tenant",
+    variant: "primary",
+    children: "Create Tenant",
+  },
+};
+
 export const Ghost: Story = {
   args: {
     icon: "ThreeDots",
