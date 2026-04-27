@@ -1,6 +1,8 @@
 @import "./reset.css";
 @import "./theme.css";
 @source "./components";
+@source "./index.js";
+@source "./forms.js";
 
 /* ==========================================
    Keyboard Focus Indicator

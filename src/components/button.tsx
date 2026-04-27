@@ -3,12 +3,24 @@ import type { ButtonHTMLAttributes } from "react";
 const variants = ["primary", "secondary", "tertiary"] as const;
 const states = ["default", "danger", "inverse", "decolor"] as const;
 
+export type ButtonVariant = (typeof variants)[number];
+export type ButtonState = (typeof states)[number];
+
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: (typeof variants)[number];
-  state?: (typeof states)[number];
+  variant?: ButtonVariant;
+  state?: ButtonState;
 };
 
 export { variants, states };
+
+export function getButtonClassName({
+  className,
+  variant = "primary",
+  state = "default",
+}: Pick<ButtonProps, "className" | "variant" | "state">) {
+  const style = [variant, state].map((c) => "btn-" + c).join(" ");
+  return `btn ${style} ${className ?? ""}`.trim();
+}
 
 export default function Button({
   className,
@@ -16,8 +28,10 @@ export default function Button({
   state = "default",
   ...props
 }: ButtonProps) {
-  const style = [variant, state].map((c) => "btn-" + c).join(" ");
   return (
-    <button className={`btn ${style} ${className ?? ""}`.trim()} {...props} />
+    <button
+      className={getButtonClassName({ className, variant, state })}
+      {...props}
+    />
   );
 }
