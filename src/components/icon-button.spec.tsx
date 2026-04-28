@@ -12,14 +12,7 @@ describe("IconButton component specification", () => {
 
   it("renders the primary text variant", () => {
     render(
-      <IconButton
-        icon="Plus"
-        label="Create Tenant"
-        variant="secondary"
-      >
-        Create Tenant
-        variant="primary"
-      >
+      <IconButton icon="Plus" label="Create Tenant" variant="primary">
         Create Tenant
       </IconButton>,
     );
@@ -31,14 +24,9 @@ describe("IconButton component specification", () => {
     expect(screen.getByText("Create Tenant")).toBeTruthy();
   });
 
-
   it("renders the secondary text variant", () => {
     render(
-      <IconButton
-        icon="Plus"
-        label="Create Tenant"
-        variant="secondary"
-      >
+      <IconButton icon="Plus" label="Create Tenant" variant="secondary">
         Create Tenant
       </IconButton>,
     );
@@ -54,11 +42,7 @@ describe("IconButton component specification", () => {
 
   it("renders the tertiary text variant", () => {
     render(
-      <IconButton
-        icon="Question"
-        label="Help"
-        variant="tertiary"
-      >
+      <IconButton icon="Question" label="Help" variant="tertiary">
         Help
       </IconButton>,
     );
