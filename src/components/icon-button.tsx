@@ -69,14 +69,6 @@ const iconOnlyVariantClassName: Record<IconOnlyVariant, string> = {
   outline: "border-2 border-gray-5",
 };
 
-const secondaryStateClassName: Record<IconButtonState, string> = {
-  default: "btn btn-primary inline-flex items-center justify-center gap-2",
-  danger: "btn btn-primary btn-danger inline-flex items-center justify-center gap-2",
-  inverse: "btn btn-primary btn-inverse inline-flex items-center justify-center gap-2",
-  emphasize: "btn btn-primary inline-flex items-center justify-center gap-2",
-  decolor: "btn btn-primary btn-decolor inline-flex items-center justify-center gap-2",
-};
-
 const tertiaryStateClassName: Record<IconButtonState, string> = {
   default: "flex items-center gap-2 py-3 text-gray-5",
   danger: "flex items-center gap-2 py-3 text-red-4 hover:text-red-5",
@@ -85,7 +77,8 @@ const tertiaryStateClassName: Record<IconButtonState, string> = {
   decolor: "flex items-center gap-2 py-3 text-gray-5 hover:text-neutral-5",
 };
 
-const textButtonLayoutClassName = "inline-flex items-center justify-center gap-2";
+const textButtonLayoutClassName =
+  "inline-flex items-center justify-center gap-2";
 
 function getIconGlyphClassName(size: IconButtonSize, className?: string) {
   const sizeClassName =
@@ -247,9 +240,6 @@ export function IconButtonGlyph({
   className?: string;
 }) {
   return (
-    <Icon
-      name={name}
-      className={getIconGlyphClassName(size, className)}
-    />
+    <Icon name={name} className={getIconGlyphClassName(size, className)} />
   );
 }
