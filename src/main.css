@@ -4,44 +4,18 @@
 @source "./index.js";
 @source "./forms.js";
 
-/* ==========================================
-   Keyboard Focus Indicator
-   ==========================================
-   Visible during keyboard navigation only.
-   Style: 4px Jade-4 (#14833F) line with 2px White (#FFF) outer stroke.
-   Placement: Outside stroke by default, inside stroke for space-constrained components.
-*/
-
-:root {
-  --focus-ring-color: #14833F;
-  --focus-ring-outer-color: #FFFFFF;
-  --focus-ring-width: 4px;
-  --focus-ring-outer-width: 2px;
-  --focus-ring-offset: 2px;
+@theme {
+  --color-focus: var(--color-jade-4);
 }
 
-/* Default focus ring - outside stroke */
-.focus-ring:focus-visible,
-*:focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 var(--focus-ring-offset) var(--focus-ring-outer-color),
-    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color),
-    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width) + var(--focus-ring-outer-width)) var(--focus-ring-outer-color);
-}
-
-/* Inside focus ring - for space-constrained components (e.g., Top Nav Items) */
-.focus-ring-inside:focus-visible {
-  outline: none;
-  box-shadow:
-    inset 0 0 0 var(--focus-ring-outer-width) var(--focus-ring-outer-color),
-    inset 0 0 0 calc(var(--focus-ring-outer-width) + var(--focus-ring-width)) var(--focus-ring-color);
-}
-
-/* Reset focus for elements that need custom handling */
-.focus-ring-none:focus-visible {
-  outline: none;
-  box-shadow: none;
+/* Utility to apply an outline to elements that acquire keyboard focus */
+@utility kb-focus {
+  &:focus-visible {
+    outline-width: 2px;
+    outline-offset: 2px;
+    outline-color: var(--color-focus);
+    outline-style: solid;
+  }
 }
 
 @layer components {
@@ -135,31 +109,4 @@
 button[aria-label="Previous page"]:not(:disabled),
 button[aria-label="Next page"]:not(:disabled) {
   cursor: pointer;
-}
-
-/* Focus ring utilities */
-@utility focus-ring {
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 var(--focus-ring-offset) var(--focus-ring-outer-color),
-      0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color),
-      0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width) + var(--focus-ring-outer-width)) var(--focus-ring-outer-color);
-  }
-}
-
-@utility focus-ring-inside {
-  &:focus-visible {
-    outline: none;
-    box-shadow:
-      inset 0 0 0 var(--focus-ring-outer-width) var(--focus-ring-outer-color),
-      inset 0 0 0 calc(var(--focus-ring-outer-width) + var(--focus-ring-width)) var(--focus-ring-color);
-  }
-}
-
-@utility focus-ring-none {
-  &:focus-visible {
-    outline: none;
-    box-shadow: none;
-  }
 }
