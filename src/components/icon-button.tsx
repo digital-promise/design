@@ -50,8 +50,8 @@ const iconOnlyBaseClassName =
   "inline-flex items-center justify-center rounded-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-4 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50";
 
 const iconOnlySizeClassName: Record<IconButtonSize, string> = {
-  md: "h-12 w-12 p-3",
-  sm: "h-8 w-8 p-2",
+  md: "h-8 w-8 p-0",
+  sm: "h-7 w-7 p-0",
   xs: "h-6 w-6 p-0",
 };
 
