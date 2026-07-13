@@ -40,7 +40,7 @@
         "$value": "#EEF2F9"
       },
       "2": {
-        "$value": "#D9DFF3"
+        "$value": "#DEE3F4"
       },
       "3": {
         "$value": "#5770BE"
@@ -88,10 +88,10 @@
     },
     "magenta": {
       "1": {
-        "$value": "#F6EEF4"
+        "$value": "#F8EFF6"
       },
       "2": {
-        "$value": "#F0DCE9"
+        "$value": "#F3DEEC"
       },
       "3": {
         "$value": "#AA558E"
@@ -142,7 +142,7 @@
         "$value": "#F5F9EB"
       },
       "2": {
-        "$value": "#E6F1CD"
+        "$value": "#E0EDC4"
       },
       "3": {
         "$value": "#69930D"
@@ -156,7 +156,7 @@
     },
     "jade": {
       "1": {
-        "$value": "#EEF7F1"
+        "$value": "#EBF5EE"
       },
       "2": {
         "$value": "#D4EADD"
@@ -173,10 +173,10 @@
     },
     "teal": {
       "1": {
-        "$value": "#EAF8FB"
+        "$value": "#E5F4F8"
       },
       "2": {
-        "$value": "#CAEEF4"
+        "$value": "#CAEBF0"
       },
       "3": {
         "$value": "#1692A9"
