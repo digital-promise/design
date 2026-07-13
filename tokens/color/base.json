@@ -40,16 +40,16 @@
         "$value": "#EEF2F9"
       },
       "2": {
-        "$value": "#D9DFF3"
+        "$value": "#DEE3F4"
       },
       "3": {
-        "$value": "#5770BE"
+        "$value": "#506ECC"
       },
       "4": {
-        "$value": "#465FAA"
+        "$value": "#415EB5"
       },
       "5": {
-        "$value": "#3A4F92"
+        "$value": "#344E9E"
       }
     },
     "purple": {
@@ -60,13 +60,13 @@
         "$value": "#E4DCF0"
       },
       "3": {
-        "$value": "#8164AF"
+        "$value": "#865EC4"
       },
       "4": {
-        "$value": "#72559F"
+        "$value": "#754FAF"
       },
       "5": {
-        "$value": "#5E4586"
+        "$value": "#633F9C"
       }
     },
     "violet": {
@@ -80,27 +80,27 @@
         "$value": "#9F57AF"
       },
       "4": {
-        "$value": "#8A4799"
+        "$value": "#8B479A"
       },
       "5": {
-        "$value": "#713C7C"
+        "$value": "#71407C"
       }
     },
     "magenta": {
       "1": {
-        "$value": "#F6EEF4"
+        "$value": "#F8EFF6"
       },
       "2": {
-        "$value": "#F0DCE9"
+        "$value": "#F3DEEC"
       },
       "3": {
-        "$value": "#AA558E"
+        "$value": "#AE5390"
       },
       "4": {
-        "$value": "#8F4777"
+        "$value": "#98457D"
       },
       "5": {
-        "$value": "#7D3C68"
+        "$value": "#84366B"
       }
     },
     "red": {
@@ -142,7 +142,7 @@
         "$value": "#F5F9EB"
       },
       "2": {
-        "$value": "#E6F1CD"
+        "$value": "#E0EDC4"
       },
       "3": {
         "$value": "#69930D"
@@ -156,36 +156,36 @@
     },
     "jade": {
       "1": {
-        "$value": "#EEF7F1"
+        "$value": "#EBF5EE"
       },
       "2": {
         "$value": "#D4EADD"
       },
       "3": {
-        "$value": "#299A55"
+        "$value": "#228844"
       },
       "4": {
-        "$value": "#14833F"
+        "$value": "#187437"
       },
       "5": {
-        "$value": "#07652C"
+        "$value": "#11622C"
       }
     },
     "teal": {
       "1": {
-        "$value": "#EAF8FB"
+        "$value": "#E5F4F8"
       },
       "2": {
-        "$value": "#CAEEF4"
+        "$value": "#CAEBF0"
       },
       "3": {
-        "$value": "#1692A9"
+        "$value": "#088399"
       },
       "4": {
-        "$value": "#1A7B8D"
+        "$value": "#096E81"
       },
       "5": {
-        "$value": "#11606E"
+        "$value": "#055D6D"
       }
     },
     "neutral": {
